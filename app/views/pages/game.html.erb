@@ -1,0 +1,8 @@
+<h1>Game Template</h1>
+<h1><%= "my title is #{params['title']}"%></h1>
+
+<% json = do_request(params['title']) %>
+
+<br>
+
+<p> <%= json %> </p>
