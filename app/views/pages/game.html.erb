@@ -1,8 +1,9 @@
 <h1>Game Template</h1>
-<h1><%= "my title is #{params['title']}"%></h1>
-
-<% json = do_request(params['title']) %>
-
+<% json = post_contents(params['title']) %>
+<%= json %>
 <br>
-
-<p> <%= json %> </p>
+<iframe id='jsgame' src='<%= json['iframe_path'] %>' width=480 height=360 msallowfullscreen='true' allowfullscreen='true' frameborder='0' scrolling='no' allowtransparency='true' webkitallowfullscreen='true' mozallowfullscreen='true'>
+</iframe>
+<br>
+<script type='text/javascript' src='/js/buttonScript.js'></script>
+<input id='myButton' class='button' type='button' onclick="target='jsgame'; launchGame('<%= json['iframe_path'] %>');" value='Launch Fullscreen'>

@@ -1,1 +1,9 @@
 <h1>home template</h1>
+
+<% json = get_contents() %>
+
+<ul>
+    <% json.each { |obj| %>
+        <li> <%= link_to(obj['title'], obj['url']) %> </li>
+    <% } %>
+</ul>

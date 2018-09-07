@@ -3,10 +3,7 @@ require 'json'
 
 url = URI.parse('http://127.0.0.1:9292/contents')
 req = Net::HTTP::Get.new(url.to_s)
-res = Net::HTTP.start(url.host, url.port) { |http|
-	http.request(req)
-}
-
+res = Net::HTTP.get_response(url)
 json = JSON.parse(res.body)
 
 Rails.application.routes.draw do

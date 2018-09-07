@@ -1,11 +1,7 @@
 <h1>Blog Template</h1>
 <h1><%= "my title is #{params['title']}"%></h1>
-
-<% json = do_request(params['title']) %>
-
+<% json = post_contents(params['title']) %>
+<%= json %>
 <br>
-
-<p> <%= json %> </p>
-
 <%= image_tag(json['title_img_path']) %>
 <%= parse_markdown(json['markdown_path']) %>
